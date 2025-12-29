@@ -1,0 +1,132 @@
+/* Base Styles */
+:root {
+    --primary-bg: #ffffff;
+    --text-color: #2d3748;
+    --accent-color: #4a5568;
+    --highlight: #ffb74d;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: var(--primary-bg);
+    color: var(--text-color);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+}
+
+/* Animation Container */
+.animation-container {
+    width: 100%;
+    max-width: 600px;
+    height: 400px;
+    margin: 0 auto 2rem;
+    position: relative;
+    background-color: #ffffff;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.animation-container svg {
+    width: 100% !important;
+    height: auto !important;
+}
+
+.animation-container.loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f9f9f9;
+}
+
+.animation-container.loading::after {
+    content: 'Loading animation...';
+    color: #666;
+    font-size: 1rem;
+}
+
+.animation-container.error {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffebee;
+    border: 1px solid #ffcdd2;
+    color: #c62828;
+    padding: 1rem;
+    text-align: center;
+}
+
+.animation-container.loaded {
+    background: transparent;
+}
+
+.animation-container svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* Content Styling */
+.maintenance-container {
+    max-width: 800px;
+    width: 100%;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+    line-height: 1.2;
+}
+
+p {
+    font-size: 1.25rem;
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+}
+
+.small {
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .animation-container {
+        height: 300px;
+        margin-bottom: 1.5rem;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    p {
+        font-size: 1.1rem;
+    }
+}
+
+/* Loading State */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.content {
+    animation: fadeIn 0.5s ease-out forwards;
+}
